@@ -157,6 +157,12 @@ fn main() {
             proofs.consist_proof,
         );
     }
+
+    #[cfg(feature = "metrics")]
+    if let Some(path) = opt.metrics.as_ref() {
+        log::write_csv(path.to_str().expect("metrics path must be UTF-8"))
+            .expect("Unable to write final metrics");
+    }
 }
 
 fn read_doc(doc_string: &String, config: &Config) -> Vec<char> {

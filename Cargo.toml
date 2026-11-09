@@ -1,3 +1,7 @@
+[workspace]
+members = ["metrics"]
+resolver = "2"
+
 [package]
 name = "reef"
 version = "0.1.0"
